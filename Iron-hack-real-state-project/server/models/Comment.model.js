@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const propertySchema = new Schema(
+const commentSchema = new Schema(
   {
     email: {
       type: String,
@@ -29,6 +29,6 @@ const propertySchema = new Schema(
   }
 );
 
-const Property = model("Property", propertySchema);
+const Comment = model("Comment", commentSchema);
 
-module.exports = Property;
+module.exports = Comment;
