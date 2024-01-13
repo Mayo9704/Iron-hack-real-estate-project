@@ -1,33 +1,20 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the User model to whatever makes sense in this case
-const commentSchema = new Schema(
-  {
-    email: {
-      type: String,
-      required: [true, "Email is required."],
-      unique: true,
-      lowercase: true,
-      trim: true,
-    },
-    password: {
-      type: String,
-      required: [true, "Password is required."],
-    },
-    firstName: {
-      type: String,
-      required: [true, "Name is required."],
-    },
-    secondName: {
-      type: String,
-      required: false
-    }
+const commentSchema = new Schema({
+  _id: ObjectId(""),
+  property_id: ObjectId(""),
+  body: {
+    type: String,
+    required: [true, "Comment is required."],
+    trim: true,
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
-  }
-);
+
+  author: {
+    type: ObjectId(""),
+    ref: User,
+  },
+});
 
 const Comment = model("Comment", commentSchema);
 
